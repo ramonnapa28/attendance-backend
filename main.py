@@ -23,7 +23,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-     'http://192.168.1.5:5173'
+     'http://192.168.1.5:5173',
      'https://attendance-frontend-nu-seven.vercel.app'
     ],
     allow_credentials=True,
