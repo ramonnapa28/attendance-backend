@@ -24,6 +24,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
      'http://192.168.1.5:5173'
+     'https://attendance-frontend-nu-seven.vercel.app'
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -458,3 +459,11 @@ if __name__ == "__main__":
     create_default_super_admin(db)
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# To run the application, use the following command:
+# uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+# Note: The `--reload` flag is for development only. For production, use a proper ASGI server like Daphne or Uvicorn without `--reload`.
+
+# If you need to generate or update the requirements.txt file, run the following command:
+# pip freeze > requirements.txt
