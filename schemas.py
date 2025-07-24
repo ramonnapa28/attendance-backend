@@ -6,8 +6,8 @@ class UserBase(BaseModel):
     name: str
     email: str
     role: str
-    dob: str
-    address: str
+    dob: Optional[str] = None
+    address: Optional[str] = None
     studentId: Optional[str] = None
     instructorId: Optional[str] = None
     school: Optional[str] = None
@@ -36,10 +36,10 @@ class LoginSchema(BaseModel):
 class User(UserBase):
     id: int
     is_active: bool
-    created_at: datetime
+    created_at: Optional[datetime] = None
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 class SchoolBase(BaseModel):
     name: str
@@ -56,7 +56,7 @@ class School(SchoolBase):
 
 class AttendanceBase(BaseModel):
     student_id: int
-    date_time: Optional[datetime] = None
+    date: Optional[datetime] = None
     status: str
 
 class AttendanceCreate(BaseModel):
