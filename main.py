@@ -201,6 +201,13 @@ def get_student_by_id(student_id: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Student not found")
     return student
 
+@router.get("/student-info", response_model=schemas.User)
+def get_student_by_id(id: str, db: Session = Depends(get_db)):
+    student = db.query(models.User).filter(models.User.studentId == id, models.User.role == 'student').first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Student not found")
+    return student
+
 @router.get("/users", response_model=List[schemas.User])
 def get_all_users(db: Session = Depends(get_db)):
     return db.query(models.User).all()
