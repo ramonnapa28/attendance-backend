@@ -32,7 +32,7 @@ app.add_middleware(
 )
 
 # Create API router with prefix '/api'
-router = APIRouter(prefix="/api")
+# router = APIRouter(prefix="/api")
 
 @app.on_event("startup")
 def print_routes():
